@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!--    对数据库环境配置的部分整合在Spring容器中来完成， 这里不需要配置-->
+<!--    <environments default="dev">-->
+<!--        <environment id="dev">-->
+<!--            <transactionManager type="JDBC"></transactionManager>-->
+<!--            <dataSource type="POOLED">-->
+<!--                <property name="driver" value="${mysql.driver}"/>-->
+<!--                <property name="url" value="${mysql.url}"/>-->
+<!--                <property name="username" value="${mysql.user}"/>-->
+<!--                <property name="password" value="${mysql.password}"/>-->
+<!--            </dataSource>-->
+<!--        </environment>-->
+<!--    </environments>-->
+    <typeAliases>
+        <package name="com.slz.mybatis.entity"/>
+    </typeAliases>
+    <mappers>
+        <package name="com.slz.mybatis.mapper"/>
+    </mappers>
+</configuration>

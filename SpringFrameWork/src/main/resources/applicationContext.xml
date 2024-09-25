@@ -1,6 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="car" class="com.slz.springfw.demo.Car">
+        <property name="band" value="BYD"></property>
+    </bean>
+    <!-- 引用类型自动注入 - 按名字 -->
+    <bean id="StudentX" class="com.slz.springfw.demo.Student" p:name="sss" p:age="23" autowire="byName"></bean>
+    <!-- 引用类型自动注入 - 按类型 -->
+    <bean id="StudentY" class="com.slz.springfw.demo.Student" p:name="张浩" p:age="22" autowire="byType"></bean>
 
+    <!-- 构造参数简化赋值 -->
+    <bean id="Student" class="com.slz.springfw.demo.Student" c:name="张浩" c:age="22" c:car-ref="car"></bean>
+
+    <!-- 1. 默认顺序赋值 -->
+    <bean id="Student1" class="com.slz.springfw.demo.Student">
+        <constructor-arg value="张浩"></constructor-arg>
+        <constructor-arg value="25"></constructor-arg>
+        <constructor-arg ref="car"></constructor-arg>
+    </bean>
+    <!-- 2. 通过类型赋值 -->
+    <bean id="Student2" class="com.slz.springfw.demo.Student">
+        <constructor-arg type="java.lang.Integer" value="25"></constructor-arg>
+        <constructor-arg type="java.lang.String" value="张浩"></constructor-arg>
+        <constructor-arg type="com.slz.springfw.demo.Car" ref="car"></constructor-arg>
+    </bean>
+    <!-- 3. 通过名字赋值 -->
+    <bean id="Student3" class="com.slz.springfw.demo.Student">
+        <constructor-arg name="age" value="25"></constructor-arg>
+        <constructor-arg name="name" value="张浩"></constructor-arg>
+        <constructor-arg name="car" ref="car"></constructor-arg>
+    </bean>
+    <!-- 4. 通过索引赋值 -->
+    <bean id="Student4" class="com.slz.springfw.demo.Student">
+        <constructor-arg index="1" value="25"></constructor-arg>
+        <constructor-arg index="0" value="张浩"></constructor-arg>
+        <constructor-arg index="2" ref="car"></constructor-arg>
+    </bean>
+
+    <bean id="Boy" class="com.slz.springfw.demo.Boy" p:name="陈平" p:age="25" p:car-ref="car"></bean>
+    <bean id="userDao" class="com.slz.springfw.demo.UserDaoJdbcImpl"></bean>
+    <bean id="userDao1" class="com.slz.springfw.demo.UserDaoMybatisImpl"></bean>
+    <bean id="Person" class="com.slz.springfw.demo.Person">
+        <property name="name" value="张三"></property>
+        <property name="gender" value="男"></property>
+        <property name="age" value="25"></property>
+        <property name="car" ref="car"></property>
+    </bean>
+    <bean id="Teacher" class="com.slz.springfw.demo.Teacher">
+        <property name="name" value="李林玉"></property>
+        <property name="addrs">
+            <list>
+                <value>平顶山</value>
+                <value>许昌</value>
+                <value>洛阳</value>
+            </list>
+        </property>
+        <property name="list">
+            <list>
+                <value>A</value>
+                <value>B</value>
+                <value>C</value>
+            </list>
+        </property>
+        <property name="set">
+            <set>
+                <value>x</value>
+                <value>y</value>
+                <value>x</value>
+            </set>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="key1" value="123.4"></entry>
+                <entry key="key2" value="124.7"></entry>
+            </map>
+        </property>
+        <property name="teachers">
+            <set>
+                <ref bean="teacher1"></ref>
+                <ref bean="teacher2"></ref>
+            </set>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="key1">value1</prop>
+                <prop key="key2">value2</prop>
+                <prop key="key3">value3</prop>
+            </props>
+        </property>
+        <property name="teacherDao" ref="TeacherDaoImpl"></property>
+    </bean>
+    <bean id="TeacherDaoImpl" class="com.slz.springfw.demo.TeacherDaoImpl"></bean>
+    <bean id="teacher1" class="com.slz.springfw.demo.Teacher">
+        <property name="name" value="张山"></property>
+    </bean>
+    <bean id="teacher2" class="com.slz.springfw.demo.Teacher">
+        <property name="name" value="李市"></property>
+    </bean>
 </beans>

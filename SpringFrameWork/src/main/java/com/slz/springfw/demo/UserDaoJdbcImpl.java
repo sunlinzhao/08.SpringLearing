@@ -6,6 +6,10 @@ package com.slz.springfw.demo;
  * @date : 2024/9/20
  */
 public class UserDaoJdbcImpl implements UserDao {
+    public UserDaoJdbcImpl() {
+        System.out.println("JDBC Constructor");
+    }
+
     @Override
     public void save() {
         System.out.println("【JDBC】 save");

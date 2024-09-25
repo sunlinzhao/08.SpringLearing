@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 一般写法 -->
+    <import resource="classpath:applicationContext_dao.xml"></import>
+    <import resource="classpath:applicationContext_service.xml"></import>
+    <!-- 简化写方法，通配符前缀匹配, 注意不要通配到文件本身 -->
+    <import resource="classpath:applicationContext_*.xml"></import>
+</beans>

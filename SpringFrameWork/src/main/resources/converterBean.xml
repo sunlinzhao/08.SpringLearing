@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 需要转换的对象 -->
+    <bean id="baby" class="com.slz.springfw.converter.Baby" p:name="张三" p:gender="男" p:birthday="2024/09/23"></bean>
+    <!-- 自定义转换器对象 -->
+    <bean id="dateConverter" class="com.slz.springfw.converter.DateConverter" p:pattern="yyyy/MM/dd"></bean>
+    <!-- 对类型转换器进行注册,  id="conversionService" 是必须的-->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <ref bean="dateConverter"></ref>
+            </set>
+        </property>
+    </bean>
+</beans>

@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/MySpringMvc" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMvc" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/SpringFrameWork/pom.xml" />
         <option value="$PROJECT_DIR$/SpringFrameWork/SpringAop/pom.xml" />
         <option value="$PROJECT_DIR$/SpringFrameWork/Spring_Mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringFrameWork/SpringMvc/pom.xml" />
+        <option value="$PROJECT_DIR$/MySpringMvc/pom.xml" />
       </list>
     </option>
   </component>

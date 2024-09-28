@@ -7,10 +7,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="SpringFrameWork" />
         <module name="SpringAop" />
         <module name="Spring_Mybatis" />
+        <module name="MySpringMvc" />
+        <module name="SpringFrameWork" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Springmvc" target="11" />
+      <module name="SpringMvc" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
